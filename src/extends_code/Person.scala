@@ -20,13 +20,16 @@ abstract class Person{
   // 抽象方法
   def say:String
   def motion()
+
+  def eat(food:String):Unit={
+    println("正在吃" + food)
+  }
 }
 
 class Student extends Person{
 
   /**
     * 子类特有的方法
-    * @param str
     */
   var name:String = _
   //var age = 12
@@ -38,6 +41,10 @@ class Student extends Person{
   def say: String = "hello world！"
   def motion():Unit ={
     println("跑步")
+  }
+
+  override def eat(food: String): Unit = {
+    println(this.name + "正在吃" + food)
   }
 }
 
@@ -99,5 +106,27 @@ object Person {
     println("抽象.....")
     val flag = stu.say
     stu.motion()
+
+    /*
+    多态
+     */
+
+    val stu2:Person = new Student()
+    stu2.name = "wangWu"
+    stu2.eat("烧鸡")
+    /*
+      向上转换后无法使用子类私有方法以及变量
+      需要进行类型转换
+      进行类型转换时，为了避免类型转换异常，会使用 sInstanceOf 先判断类型，再进行类型转换
+     */
+
+    if(stu2.isInstanceOf[Student]){
+      val stu3 = stu2.asInstanceOf[Student]
+      stu3.study("java")
+    }
+
+
+
+
   }
 }
