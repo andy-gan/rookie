@@ -16,6 +16,7 @@ class Person{
 
   def eat():Unit={
     println(name + "在吃早饭！")
+    println("xxxxxxxxx")
   }
 
 }
