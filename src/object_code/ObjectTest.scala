@@ -158,9 +158,6 @@ object ObjectTest {
 //    println(per3.name)
 //    println(per3.age)
 
-    //    per3.age_=(18)
-    //    println(per3.name)
-    //    println(per3.age)
     per3.eat()
 
 
